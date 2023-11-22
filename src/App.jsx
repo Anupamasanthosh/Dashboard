@@ -1,12 +1,15 @@
-
+import { BrowserRouter as BrowserRouter,Routes,Route } from 'react-router-dom'
 import './App.css'
+import Home from './Pages/Home'
 
 function App() {
 
   return (
-    <>
-      hii
-    </>
+    <BrowserRouter >
+    <Routes>
+      <Route path='/' element={<Home/>} />
+    </Routes>
+    </BrowserRouter>
   )
 }
 
