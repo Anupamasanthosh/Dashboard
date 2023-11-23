@@ -33,7 +33,7 @@ function Content() {
     {
       title: "free forever",
       name: "Free Starter",
-      Des: "Lorem ipsum",
+      Des: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       users: 8,
       storage: 3,
       services: "Email Support",
@@ -42,9 +42,8 @@ function Content() {
     {
       title: "Lets connect",
       name: "Enterprise plan",
-      Des: "Lorem ipsum",
+      Des: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
       users: 75,
-      storage: 3,
       note: "Lorem ipsum",
     },
   ];
@@ -81,46 +80,42 @@ function Content() {
       </div>
 
       <div
-        className={`self-end mb-4 ${
-          isSmallScreen ? "sm:w-full text-center" : ""
-        }`}
+        className={`self-end mb-4 ${isSmallScreen ? "sm:w-full mt-5 " : ""}`}
       >
         <Buttons />
       </div>
 
       <div className="text-center mb-4 w-full">
         {isSmallScreen ? (
-          <div className="flex flex-col items-center">
-            <div className="flex justify-between w-full">
-              <button onClick={handlePrev} disabled={currentIndex === 0}>
-                &lt; Prev
-              </button>
-              <button
-                onClick={handleNext}
-                disabled={currentIndex + pricePerPage >= 3}
-              >
-                Next &gt;
-              </button>
-            </div>
-            <div className="flex justify-between w-full">
+          <div className="flex justify-between">
+            <button onClick={handlePrev} disabled={currentIndex === 0}>
+              &lt; Prev
+            </button>
+            <div className="">
               {data
                 .slice(currentIndex, currentIndex + pricePerPage)
                 .map((item, index) => (
                   <Pricing key={index} item={item} />
                 ))}
             </div>
+            <button
+              onClick={handleNext}
+              disabled={currentIndex + pricePerPage >= 3}
+            >
+              Next &gt;
+            </button>
           </div>
         ) : (
-          <div className="flex justify-between">
+          <div className="flex justify-between ">
             {data.map((item, index) => (
               <Pricing key={index} item={item} />
             ))}
           </div>
         )}
       </div>
-      <div className="text-center sm:w-full md:w-full">
-        {plans.map((plan,index) => (
-          <Plan plan={plan}  key={index}/>
+      <div className="text-center sm:w-full md:w-full flex flex-wrap justify-center">
+        {plans.map((plan, index) => (
+          <Plan plan={plan} key={index} />
         ))}
       </div>
     </div>
